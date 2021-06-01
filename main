@@ -1,0 +1,35 @@
+import pgzrun
+from pgzero.screen import Screen
+from pgzero.builtins import Actor, keyboard
+from unity1 import Gracz
+
+
+
+WIDTH = 600
+HEIGHT = 660
+keys: keyboard
+screen: Screen
+
+gracz = Gracz(keys)
+
+#mapa kolorowa, to tylko nakładka 
+color_map = Actor('nazwa mapy', pos = (300, 360), achor = (0, 0)) #pos=(0, 60) coś tu się psuje
+
+def draw():
+    screen.fill((0, 0, 0))
+    color_map.draw()
+    gracz.draw(screen)
+
+
+def on_key_down(key):
+    gracz.on_key_down(key)
+
+
+def on_key_up(key):
+    gracz.on_key_down(key)
+
+
+def update():
+    gracz.update()
+
+
