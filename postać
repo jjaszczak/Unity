@@ -1,0 +1,68 @@
+from  pgzero.builtins import Actor
+from time import time #trzeba pamietać o ograniczeniu czasowym w naszej grze!
+
+
+class Gracz:
+    def __init__(self, keys):
+        self.images = ["obraz_gracza"] #trzeba tu wprowadzić grafiki postaci gracza
+        self.keys = keys
+        self.keys_active = {'right': False, 'up': False, 'left': False, 'down': False}
+        self.gracz = Actor("obraz_gracza")
+        self.gracz.x = 290
+        self.gracz.y = 570
+        self.lives = 50 #jakieś początkowe życie #dopracować
+
+    def on_key_down(self, key):
+        if key == self.keys.RIGHT:
+            self.keys_active['right'] = True
+        if key == self.keys.UP:
+            self.keys_active['up'] = True
+        if key == self.keys.DOWN:
+            self.keys_active['down'] = True
+        if key == self.keys.LEFT:
+            self.keys_active['left'] = True
+
+    def on_key_up(self, key):
+        if key == self.keys.RIGHT:
+            self.keys_active['right'] = False
+        if key == self.keys.UP:
+            self.keys_active['up'] = False
+        if key == self.keys.DOWN:
+            self.keys_active['down'] = False
+        if key == self.keys.LEFT:
+            self.keys_active['left'] = False
+
+    def draw(self, screen):
+        self.gracz.draw()
+        for live in range(self.lives):
+            screen.blit() #Tu będzie licznik życia
+
+    def move_pressed(self):
+        pressed = any(value for value in self.keys_active.values())
+        return pressed
+
+    def update(self):
+        pass
+
+        #Animacja postaci
+        postac_prosto = "nazwa obrazka"
+        postac_lewo = "nazwa obrazka"
+        postac_prawo = "nazwa obrazka"
+
+# pacman.angle to jest kąt nachylenia pacmana
+        if self.keys_active['right']:
+            self.gracz.x += 1
+            self.gracz.image = postac_prawo
+            self.gracz.angle = 0
+        if self.keys_active['up']:
+            self.gracz.y -= 1
+            self.gracz.image = postac_prosto
+            self.gracz.angle = 90
+        if self.keys_active['left']:
+            self.gracz.x -= 1
+            self.gracz.image = postac_lewo
+            self.gracz.angle = 180
+        if self.keys_active['down']:
+            self.gracz.y += 1
+            self.gracz.image = postac_prosto
+            self.gracz.angle = 270
