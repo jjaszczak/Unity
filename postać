@@ -1,6 +1,6 @@
 from  pgzero.builtins import Actor
 from time import time #trzeba pamietać o ograniczeniu czasowym w naszej grze!
-
+from mapa import move_check_point
 
 class Gracz:
     def __init__(self, keys):
@@ -42,8 +42,9 @@ class Gracz:
         return pressed
 
     def update(self):
-        pass
-
+        can_move = check_move_point(self)
+        if not can_move:
+            return
         #Animacja postaci
         postac_prosto = "nazwa obrazka"
         postac_lewo = "nazwa obrazka"
