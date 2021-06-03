@@ -13,7 +13,7 @@ w __init__ Gracza a eventy wpływać będą na jej wzrost? #Emilia
 4. Mapy
   a. mapa grafiki, która jest wyświatlana
   b. mapa po której porusza się gracz (move_map)
-  może być jedna wspólna mapa na której będzie ruch oraz eventy, lub dwie (move_map, event_map) wg. uznania, nwm co będzie lepsze
+  może być jedna wspólna mapa na której będzie ruch oraz eventy, lub dwie (move_map, event_map) wg. uznania, nwm co będzie lepsze #Julia
   
 5. Eventy, kiedy juz trafimy na mapie w pole eventu, fajnie by było gdyby się coś działo, sugerowane eventy:
   a. kradzież pieniędzy
