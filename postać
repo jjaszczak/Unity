@@ -6,7 +6,7 @@ class Gracz:
     def __init__(self, keys):
         self.images = ["obraz_gracza"] #trzeba tu wprowadzić grafiki postaci gracza
         self.keys = keys
-        self.keys_active = {'right': False, 'up': False, 'left': False, 'down': False}
+        self.gracz.keys_active = {'right': False, 'up': False, 'left': False, 'down': False}
         self.gracz = Actor("obraz_gracza")
         self.gracz.x = 290
         self.gracz.y = 570
@@ -42,7 +42,7 @@ class Gracz:
         return pressed
 
     def update(self):
-        can_move = check_move_point(self)
+        can_move = check_move_point(self.gracz)
         if not can_move:
             return
         #Animacja postaci
@@ -51,19 +51,19 @@ class Gracz:
         postac_prawo = "nazwa obrazka"
 
 # pacman.angle to jest kąt nachylenia pacmana
-        if self.keys_active['right']:
+        if self.gracz.keys_active['right']:
             self.gracz.x += 1
             self.gracz.image = postac_prawo
             self.gracz.angle = 0
-        if self.keys_active['up']:
+        if self.gracz.keys_active['up']:
             self.gracz.y -= 1
             self.gracz.image = postac_prosto
             self.gracz.angle = 90
-        if self.keys_active['left']:
+        if self.gracz.keys_active['left']:
             self.gracz.x -= 1
             self.gracz.image = postac_lewo
             self.gracz.angle = 180
-        if self.keys_active['down']:
+        if self.gracz.keys_active['down']:
             self.gracz.y += 1
             self.gracz.image = postac_prosto
             self.gracz.angle = 270
