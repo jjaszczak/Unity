@@ -8,7 +8,7 @@ Co trzeba zrobić?
    -- opracowanie przegranej nwm gdzie by to się miało znaleść --
     
 3. Ograniczenie czasowe - polecam współpracę z sekcją Eventy oraz klasa posataci, może czas będzie wartością definiowaną 
-w __init__ Gracza a eventy wpływać będą na jej wzrost?
+w __init__ Gracza a eventy wpływać będą na jej wzrost? #Emilia
 
 4. Mapy
   a. mapa grafiki, która jest wyświatlana
@@ -22,7 +22,7 @@ w __init__ Gracza a eventy wpływać będą na jej wzrost?
   
 6. Jeśli zdążymy to przeciwnicy, chciaż warto zacząć, postarać się zrobić tak, żeby się samodzielnie ruszali (#random.choose)
   
-7. Koniec mapy - opracowanie zakończenia w tym, końcowej scenki fabularnej, napisu, czy rankungu, podsumowania - wg uznania
+7. Koniec mapy - opracowanie zakończenia w tym, końcowej scenki fabularnej, napisu, czy rankungu, podsumowania - wg uznania #Emilia
 
 P.S. podejrzewam, ze to nie jedyne rzeczy z jakimi będzimy musieli się zmierzyć, gdybyście potrzebowali współpracy, bo część rzeczy odwołuje się 
 do siebie wzajemnie, to najważniejsze ustalić wspólne nazwenictowo zmiennych :) powinno zadziałać, a jak nie to jest PYcharm i debugowanie, 
