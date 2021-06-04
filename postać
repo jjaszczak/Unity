@@ -3,14 +3,15 @@ from time import time #trzeba pamietać o ograniczeniu czasowym w naszej grze!
 from mapa import move_check_point
 
 class Gracz:
-    def __init__(self, keys):
+    def __init__(self, keys, lives=50):
         self.images = ["obraz_gracza"] #trzeba tu wprowadzić grafiki postaci gracza
         self.keys = keys
         self.gracz.keys_active = {'right': False, 'up': False, 'left': False, 'down': False}
         self.gracz = Actor("obraz_gracza")
         self.gracz.x = 290
         self.gracz.y = 570
-        self.lives = 50 #jakieś początkowe życie #dopracować
+        self.start_pos = self.gracz.x, self.gracz.y
+        self.lives = lives
 
     def on_key_down(self, key):
         if key == self.keys.RIGHT:
