@@ -26,10 +26,13 @@ def on_key_down(key):
 
 
 def on_key_up(key):
-    gracz.on_key_down(key)
+    gracz.on_key_up(key)
 
 
 def update():
     gracz.update()
+    
+pgzrun.go()
+
 
 
