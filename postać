@@ -36,7 +36,8 @@ class Gracz:
     def draw(self, screen):
         self.gracz.draw()
         for live in range(self.lives):
-            screen.blit() #Tu będzie licznik życia
+            screen.blit("serce",(10 + live*50,20)) 
+            #jkbc użyłbym tej samej ikonki do licznika serc i do dodatkowych żyć na mapie
 
     def move_pressed(self):
         pressed = any(value for value in self.keys_active.values())
@@ -68,3 +69,6 @@ class Gracz:
             self.gracz.y += 1
             self.gracz.image = postac_prosto
             self.gracz.angle = 270
+            
+    def zmiana_zycia(self,wartosc): #funkcja zmieniająca licznik żyć (na mniej lub na więcej)
+        self.lives=self.lives+wartosc
