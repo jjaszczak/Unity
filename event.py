@@ -3,19 +3,27 @@ from  pgzero.builtins import Actor,Rect
 
 class Event:
     def __init__(self):
-        print("utworzono event")
-        self.name='czas1'
+        #na razie trzy ikonki i trzy typy
+        self.time_name='czas'
+        self.life_name='serce'
+        self.unknown_name='unknown'
 
 
         self.events=[] #do tej listy dodajemy początkowe obiekty
-        #daję tu póki co dwa dowolne, będę potrzebował później współrzędnych
 
-        newevent=Actor(self.name,(200,400))
+        newevent=Actor(self.time_name,(414,540))
         newevent.hidden=False #początkowo obiekty nie są ukryte
+        newevent.type=1
         self.events.append(newevent)
 
-        newevent = Actor(self.name, (400, 600))
+        newevent = Actor(self.life_name, (683, 466))
         newevent.hidden=False
+        newevent.type=2
+        self.events.append(newevent)
+
+        newevent = Actor(self.unknown_name, (298, 64))
+        newevent.hidden = False
+        newevent.type=3
         self.events.append(newevent)
 
     def events_to_draw(self): #zwraca listę z obiektami, które nie zostały jeszcze zebrane
@@ -31,11 +39,18 @@ class Event:
 
     def kolizja(self,gracz): #sprawdzanie kolizji
         x,y=gracz.x,gracz.y
-        print(x,y)
+        #print(x,y)
         rect = Rect(x-35/2,y-35/2,35,35) #prostokąt w którym znajduje się gracz
         for event in self.events_to_draw(): #czy gracz ma kolizję z jakimś nieukrytym eventem
             if event.colliderect(rect):
-                event.hidden=True
+                event.hidden = True  #ukrywamy obiekt i sprawdzamy, jakiego był typu
+                if event.type==1:
+                    return "time"
+                if event.type==2:
+                    return "life"
+                if event.type==3:
+                    return "unknown"
+        return "None"
 
 
 
