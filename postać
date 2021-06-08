@@ -1,6 +1,6 @@
 from  pgzero.builtins import Actor
 from time import time #trzeba pamietać o ograniczeniu czasowym w naszej grze!
-from mapa import move_check_point
+from mapa import move_check_point                  
 
 class Gracz:
     def __init__(self, keys):
@@ -45,12 +45,13 @@ class Gracz:
         can_move = check_move_point(self)
         if not can_move:
             return
+            
         #Animacja postaci
         postac_prosto = "nazwa obrazka"
         postac_lewo = "nazwa obrazka"
         postac_prawo = "nazwa obrazka"
 
-# pacman.angle to jest kąt nachylenia pacmana
+# gracz.angle to jest kąt nachylenia gracza
         if self.keys_active['right']:
             self.gracz.x += 1
             self.gracz.image = postac_prawo
