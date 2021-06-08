@@ -33,7 +33,13 @@ def on_key_up(key):
 
 def updatebyevent(): #sprawdzanie kolizji na bieżąco
     if gracz.move_pressed(): #jeżeli jest naciśnięty jakiś klawisz
-        event.kolizja(gracz.gracz)
+        wynikfunkcji=event.kolizja(gracz.gracz)
+        if wynikfunkcji=="time": 
+            print ("czas") #tu funkcja dodająca czas
+        if wynikfunkcji=="life":
+            gracz.zmiana_zycia(1) #dodatkowe życie, potrzebna funkcja w klasie postaci zmieniająca licznik żyć o daną wartość
+        if wynikfunkcji=="unknown": 
+            print ("niewiadomo") #tu jeszcze zobaczymy
 
 
 def update():
